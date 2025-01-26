@@ -1,12 +1,12 @@
 class Solution {
     public boolean hasDuplicate(int[] nums) {
-    
-       boolean flag = false;
          Set<Integer> mySet = Arrays.stream(nums).boxed().collect(Collectors.toSet());
+         return (mySet.size() != nums.length);
+    }
+}
 
-        if (mySet.size() != nums.length) {
-            flag = true;
-        }
-       return flag;
+public class Solution2 {
+    public boolean hasDuplicate(int[] nums) {
+        return Arrays.stream(nums).distinct().count() < nums.length;
     }
 }
